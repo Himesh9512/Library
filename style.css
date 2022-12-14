@@ -1,13 +1,13 @@
 * {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     --box-shadow: 4px 4px black;
+    --border: 3px solid black;
     margin: 0;
     padding: 0;
-    /* border: 1px solid black; */
 }
 /* || body of library */
 #container {
-    background-color: antiquewhite;
+    background-color: #FFDCA8;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -25,13 +25,12 @@
 .logo {
     position: sticky;
     display: flex;
-    color: black;
-    background-color: rgb(228, 59, 228);
+    color: white;
+    background-color: black;
     border: 3px solid black;
     margin-left: 10%;
     text-align: center;
     min-height: fit-content;
-    box-shadow: var(--box-shadow);
 }
 .logo span {
     font-size: 2rem;
@@ -52,11 +51,41 @@
     height: 60%;
     width: 20%;
     box-shadow: var(--box-shadow);
-    border: 3px solid black;
+    border: var(--border);
 }
 /* ********** card header ********** */
 .card-header {
     text-align: center;
-    background-color: white;
+    background-color: #bd00ff;
     padding: 20px 30px;
+    border-bottom: var(--border);
+}
+/* ********** card body ********** */
+.card-body {
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+}
+.author , .pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    border-radius: 8px;
+}
+.delete , .read-status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FF272A;
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    height: 3em;
+    width: 100%;
+}
+.read-status {
+    background-color: 	#01ff1f;
 }
