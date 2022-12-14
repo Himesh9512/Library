@@ -5,29 +5,33 @@
     margin: 0;
     padding: 0;
 }
+button:hover {
+    cursor: pointer;
+    box-shadow: none;
+}
 /* || body of library */
 #container {
     background-color: #FFDCA8;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
     padding: 1%;
+    padding-top: 0;
     max-width: 100%;
 }
 /* || header */
 #header {
     min-height: fit-content;
     display: flex;
-    justify-content: start;
-    align-items: flex-start;
+    justify-content: space-between;
+    align-items: center;
 }
 /* ********** logo ********** */
 .logo {
-    position: sticky;
+    position: relative;
     display: flex;
     color: white;
-    background-color: black;
-    border: 3px solid black;
+    background-color: #000000;
     margin-left: 10%;
     text-align: center;
     min-height: fit-content;
@@ -36,20 +40,31 @@
     font-size: 2rem;
     margin: 20px;
 }
-/* || books */
-#books-section {
+/* ********** add new book ********** */
+.add-button {
     display: flex;
-    height: 100%;
-    padding: 30px;
     justify-content: center;
     align-items: center;
+    height: 50px;
+    width: 90px;
+    margin-right: 10%;
+    background-color: #01ff1f;
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+}
+/* || books */
+#books-section {
+    height: 100%;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 35px;
 }
 /* ********** book card ********** */
 .card {
     display: flex;
     flex-direction: column;
-    height: 60%;
-    width: 20%;
+    height: 350px;
     box-shadow: var(--box-shadow);
     border: var(--border);
 }
