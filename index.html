@@ -23,16 +23,14 @@
         <div class="add-book card"> 
             <div class="card-header">Add Book</div>
             <div class="card-body">
-                <form action="POST">
                     <input type="text" id="book-name" name="book-name" placeholder="Book">
                     <input type="text" id="author-name" name="author-name" placeholder="Author">
-                    <input type="number" id="pages" name="pages" placeholder="Pages" min="1" max="2000">
-                    <select>
+                    <input type="number" id="pages-count" name="pages" placeholder="Pages" min="1" max="2000">
+                    <select id="read">
                         <option value="read">Read</option>
                         <option value="not-read">Not Read</option>
                     </select>
-                    <button type="reset" id="add-button"><span class="material-symbols-outlined">add</span></button>
-                </form>
+                    <button id="add-button"><span class="material-symbols-outlined">add</span></button>
             </div>
         </div>
         <div class="card">

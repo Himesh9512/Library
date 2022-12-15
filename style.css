@@ -107,13 +107,13 @@ button:hover {
     background-color: 	#01ff1f;
 }
 /* ********** add-book card ********** */
-.add-book form {
+.add-book .card-body {
     display: grid;
     grid-template-columns: 1fr;
     height: 100%;
     gap: 15px;
 }
-form input,select {
+input,select {
     outline: none;
     border-radius: 3px;
     border: var(--border);
@@ -121,6 +121,6 @@ form input,select {
     padding-left: 5px;
     font-size: 1em;
 }
-#submit {
+#add-button {
     background-color: #FFDCA8;
 }
