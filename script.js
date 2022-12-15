@@ -35,6 +35,24 @@ class Book {
 // Add book card to webpage
 const addBookToLibrary = (book) => {
     library.push(book);
+    let newBookCard = document.createElement('div');
+        newBookCard.classList.add('card');
+
+        newBookCard.innerHTML = `
+        <div class="card-header">${book.title}</div>
+        <div class="card-body">
+            <div class="author">${book.author}</div>
+            <div class="pages">${book.pages} Pages</div>
+            <button class="read-status">
+                <div class="read">${book.isRead}</div>
+            </button>
+            <button class="delete">
+                <div class="delete-icon"><span class="material-symbols-outlined">delete</span></div>
+            </button>
+        </div>`;
+
+        console.log(newBookCard);
+        librarySection.appendChild(newBookCard);
 }
 
 // Create object of book
@@ -47,6 +65,7 @@ const createBookObject = () => {
     newBook = new Book(bookName, authorName, pagesCount, readStatus);
 
     addBookToLibrary(newBook);
+    clearInput();
 }
 
 // Delete object of book
@@ -89,6 +108,13 @@ const addDefaultObject = () => {
     });
     console.log(library);
     appendBooks();
+}
+// Clear input fields
+const clearInput = () => {
+    bookNameInput.value = '';
+    authorNameInput.value = '';
+    pagesCountInput.value = '';
+    readStatusInput.value = 'read';
 }
 addBookButton.addEventListener('click', createBookObject);
 
