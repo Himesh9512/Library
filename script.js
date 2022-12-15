@@ -1,4 +1,4 @@
-let myBooks = [];
+let library = [];
 let newBook = undefined;
 const DEFAULT_OBJECTS = [
     {
@@ -15,6 +15,7 @@ const DEFAULT_OBJECTS = [
     }
 ]
 
+const librarySection = document.getElementById('books-section');
 const bookNameInput = document.getElementById('book-name');
 const authorNameInput = document.getElementById('author-name');
 const pagesCountInput = document.getElementById('pages-count');
@@ -33,8 +34,7 @@ class Book {
 
 // Add book card to webpage
 const addBookToLibrary = (book) => {
-    myBooks.push(book);
-    console.log(myBooks);
+    library.push(book);
 }
 
 // Create object of book
@@ -46,7 +46,6 @@ const createBookObject = () => {
 
     newBook = new Book(bookName, authorName, pagesCount, readStatus);
 
-    console.log(newBook);
     addBookToLibrary(newBook);
 }
 
@@ -60,12 +59,36 @@ const toggleReadStatus = () =>{
     // code
 }
 
+// append book card to document
+const appendBooks = () => {
+    library.forEach((book) => {
+        let newBookCard = document.createElement('div');
+        newBookCard.classList.add('card');
+
+        newBookCard.innerHTML = `
+        <div class="card-header">${book.title}</div>
+        <div class="card-body">
+            <div class="author">${book.author}</div>
+            <div class="pages">${book.pages} Pages</div>
+            <button class="read-status">
+                <div class="read">${book.isRead}</div>
+            </button>
+            <button class="delete">
+                <div class="delete-icon"><span class="material-symbols-outlined">delete</span></div>
+            </button>
+        </div>`;
+
+        console.log(newBookCard);
+        librarySection.appendChild(newBookCard);
+    })
+}
 // Push default objects on Page Load
 const addDefaultObject = () => {
     DEFAULT_OBJECTS.forEach((book)=>{
-        myBooks.push(book);
+        library.push(book);
     });
-    console.log(myBooks);
+    console.log(library);
+    appendBooks();
 }
 addBookButton.addEventListener('click', createBookObject);
 
