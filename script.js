@@ -86,25 +86,46 @@ const clearInput = () => {
 }
 
 //  Create HTML element of book object
-
 const createHtmlElement = (book) => {
+    // card
     let newBookCard = document.createElement('div');
     newBookCard.classList.add('card');
+    
+    let newBookHeader = document.createElement('div'); // book header
+    newBookHeader.classList.add('card-header');
+    newBookHeader.innerHTML = `${book.title}`
+    
+    let newBookBody = document.createElement('div'); // book body
+    newBookBody.classList.add('card-body');
+    
+    // append header and body to card
+    newBookCard.appendChild(newBookHeader); 
+    newBookCard.appendChild(newBookBody);
+    
+    let newBookAuthor = document.createElement('div'); // book author
+    newBookAuthor.classList.add('author');
+    newBookAuthor.innerText = `${book.author}`;
+    
+    let newBookPages = document.createElement('div'); // book pages 
+    newBookPages.classList.add('pages');
+    newBookPages.innerText = `${book.pages}`;
+    
+    let newBookRead = document.createElement('button'); // book read status
+    newBookRead.classList.add('read-status');
+    newBookRead.innerHTML = `<div class="read">${book.isRead}</div>`;
+    
+    let newBookDelete = document.createElement('button'); // book delete button
+    newBookDelete.classList.add('delete');
+    newBookDelete.innerHTML = `<div class="delete-icon"><span class="material-symbols-outlined">delete</span></div>`;
 
-        newBookCard.innerHTML = `
-        <div class="card-header" style="background-color: #ff9a88;">${book.title}</div>
-        <div class="card-body">
-            <div class="author">${book.author}</div>
-            <div class="pages">${book.pages} Pages</div>
-            <button class="read-status">
-                <div class="read">${book.isRead}</div>
-            </button>
-            <button class="delete">
-                <div class="delete-icon"><span class="material-symbols-outlined">delete</span></div>
-            </button>
-        </div>`;
+    // append all elements to book body
+    newBookBody.appendChild(newBookAuthor);
+    newBookBody.appendChild(newBookPages);
+    newBookBody.appendChild(newBookRead);
+    newBookBody.appendChild(newBookDelete);
 
-        librarySection.appendChild(newBookCard);
+    // append book card to library
+    librarySection.appendChild(newBookCard);
 }
 
 addBookButton.addEventListener('click', createBookObject);
