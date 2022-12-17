@@ -46,6 +46,7 @@ button:hover {
     min-height: fit-content;
 }
 .logo span {
+    font-family: 'Kenia';
     font-size: 2rem;
     margin: 20px;
 }
@@ -66,7 +67,7 @@ button:hover {
     height: 100%;
     padding: 30px;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(auto-fit,minmax(290px,340px));
     gap: 35px;
 }
 /* ********** book card ********** */
@@ -74,6 +75,8 @@ button:hover {
     display: flex;
     flex-direction: column;
     height: 350px;
+    max-width: 340px;
+    min-width: 260px;
     box-shadow: var(--box-shadow);
     border: var(--border);
 }
@@ -105,10 +108,15 @@ button:hover {
 }
 /* ********** add-book card ********** */
 .add-book .card-body {
+    font-family: 'Amaranth';
     display: grid;
     grid-template-columns: 1fr;
     height: 100%;
     gap: 15px;
+}
+.card-header {
+    font-family: 'Merienda';
+    font-size: 1.3em;
 }
 input,select {
     outline: none;
