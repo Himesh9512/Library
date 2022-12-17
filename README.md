@@ -10,3 +10,19 @@ In this project, I designed a single-page **library app** that allows you to cre
 
 ## Preview
 
+#### PC
+<img src="https://github.com/Himesh9512/Library/blob/main/images/Screenshot-1.png" height="300px">
+
+### Mobile
+<img src="https://github.com/Himesh9512/Library/blob/main/images/screenshot-2.png" height="500px">
+
+## What I learned ?
+
+- Object manipulation and DOM actions using Objects in JavaScript
+- Making a responsive page with a grid
+- embracing neo-brutalism UI for websites
+- Using DOM to construct and customise Web elements
+
+## Technology
+
+- Vanilla HTML,CSS,JS
