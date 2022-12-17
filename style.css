@@ -2,6 +2,7 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     --box-shadow: 4px 4px black;
     --border: 3px solid black;
+    --background: #FFDCA8;
     margin: 0;
     padding: 0;
 }
@@ -11,7 +12,6 @@ button {
     align-items: center;
     border: var(--border);
     box-shadow: var(--box-shadow);
-    /* height: 3em; */
     width: 100%;
 }
 button:hover {
@@ -20,7 +20,7 @@ button:hover {
 }
 /* || body of library */
 #container {
-    background-color: #FFDCA8;
+    background-color: var(--background);
     display: flex;
     flex-direction: column;
     min-height: 100vh;

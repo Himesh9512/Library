@@ -32,12 +32,6 @@ const pagesCountInput = document.getElementById('pages-count');
 const readStatusInput = document.getElementById('read');
 const addBookButton = document.getElementById('add-button');
 
-// Add book card to webpage
-const addBookToLibrary = (book) => {
-    library.push(book);
-    createHtmlElement(book);
-}
-
 // Create object of book
 const createBookObject = () => {
     let bookName = bookNameInput.value;
@@ -48,20 +42,26 @@ const createBookObject = () => {
     newBook = new Book(bookName, authorName, pagesCount, readStatus);
 
     addBookToLibrary(newBook);
-    deleteBookObject();
+    deleteBookCard();
     clearInput();
 }
 
 // Delete object of book
-const deleteBookObject = () => {
-    const deleteBookButtons = document.querySelectorAll('.delete');
-    deleteBookButtons.forEach(button => {
+const deleteBookCard = () => {
+    const deleteButtons = document.querySelectorAll('.delete');
+    deleteButtons.forEach(button => {
         button.addEventListener('click',(e)=>{
             let childCard = e.target.parentNode.parentNode;
 
             librarySection.removeChild(childCard);
         })
     })
+}
+
+// Add book card to webpage
+const addBookToLibrary = (book) => {
+    library.push(book);
+    createHtmlElement(book);
 }
 
 // append book card to document
@@ -78,7 +78,7 @@ const addDefaultObject = () => {
     });
     console.log(library);
     appendBooks();
-    deleteBookObject();
+    deleteBookCard();
 }
 
 // Clear input fields
@@ -131,6 +131,8 @@ const createHtmlElement = (book) => {
     librarySection.appendChild(newBookCard);
 }
 
+// Listen for user click on add button
 addBookButton.addEventListener('click', createBookObject);
 
+// Invoke addDefaultObject function when the page is loaded
 window.onload = addDefaultObject;
