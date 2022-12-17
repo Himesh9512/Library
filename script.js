@@ -48,17 +48,20 @@ const createBookObject = () => {
     newBook = new Book(bookName, authorName, pagesCount, readStatus);
 
     addBookToLibrary(newBook);
+    deleteBookObject();
     clearInput();
 }
 
 // Delete object of book
 const deleteBookObject = () => {
-    // code
-}
+    const deleteBookButtons = document.querySelectorAll('.delete');
+    deleteBookButtons.forEach(button => {
+        button.addEventListener('click',(e)=>{
+            let childCard = e.target.parentNode.parentNode;
 
-// Toggle read status
-const toggleReadStatus = () => {
-    // code
+            librarySection.removeChild(childCard);
+        })
+    })
 }
 
 // append book card to document
@@ -75,6 +78,7 @@ const addDefaultObject = () => {
     });
     console.log(library);
     appendBooks();
+    deleteBookObject();
 }
 
 // Clear input fields
@@ -82,7 +86,6 @@ const clearInput = () => {
     bookNameInput.value = '';
     authorNameInput.value = '';
     pagesCountInput.value = '';
-    readStatusInput.value = 'read';
 }
 
 //  Create HTML element of book object
@@ -90,30 +93,30 @@ const createHtmlElement = (book) => {
     // card
     let newBookCard = document.createElement('div');
     newBookCard.classList.add('card');
-    
+
     let newBookHeader = document.createElement('div'); // book header
     newBookHeader.classList.add('card-header');
     newBookHeader.innerHTML = `${book.title}`
-    
+
     let newBookBody = document.createElement('div'); // book body
     newBookBody.classList.add('card-body');
-    
+
     // append header and body to card
-    newBookCard.appendChild(newBookHeader); 
+    newBookCard.appendChild(newBookHeader);
     newBookCard.appendChild(newBookBody);
-    
+
     let newBookAuthor = document.createElement('div'); // book author
     newBookAuthor.classList.add('author');
-    newBookAuthor.innerText = `${book.author}`;
-    
+    newBookAuthor.innerText = `Written By: ${book.author}`;
+
     let newBookPages = document.createElement('div'); // book pages 
     newBookPages.classList.add('pages');
-    newBookPages.innerText = `${book.pages}`;
-    
-    let newBookRead = document.createElement('button'); // book read status
+    newBookPages.innerText = `Pages: ${book.pages}`;
+
+    let newBookRead = document.createElement('div'); // book read status
     newBookRead.classList.add('read-status');
     newBookRead.innerHTML = `<div class="read">${book.isRead}</div>`;
-    
+
     let newBookDelete = document.createElement('button'); // book delete button
     newBookDelete.classList.add('delete');
     newBookDelete.innerHTML = `<div class="delete-icon"><span class="material-symbols-outlined">delete</span></div>`;
